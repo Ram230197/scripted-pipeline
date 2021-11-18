@@ -1,0 +1,8 @@
+node {
+    stage ("git checkout") {
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Ram230197/github.git']]])
+    }
+    stage ("buil using maven") {
+        sh 'mvn clean install'
+    }
+}
